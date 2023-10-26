@@ -7,6 +7,10 @@ import Searchbar from "./components/Searchbar";
 import Homepage from "./Homepage";
 import { Routes,Route } from "react-router-dom";
 import Mainpage from "./Mainpage";
+import { Link } from "react-router-dom";
+import {Button} from "@mui/material";
+import Login from "./Login";
+import Signup from "./Signup";
 function Layout() {
     return (
         <>
@@ -20,6 +24,11 @@ function Layout() {
                         <Admin/>
                         <About/>
                         </Box>
+                        <Box sx={{border:'2px solid red',display:'flex',margin:'10px'}}>
+
+                        <Button LinkComponent={Link} to="/login" variant="contained" sx={{marginLeft:'40px',textTransform: 'none'}}>Login</Button>
+                        <Button LinkComponent={Link} to="/signup" variant="outlined" sx={{marginX:'10px',textTransform: 'none'}}>Sign up</Button>
+                        </Box>
                     </Box>
                 </Grid>
                 <Grid item xs={9.5}>
@@ -31,6 +40,8 @@ function Layout() {
                             <Route path="/" element={<Homepage/>}>
                             </Route>
                             <Route path="/main" element={<Mainpage/>}></Route>
+                            <Route path="/login" element={<Login/>}></Route>
+                            <Route path="/signup" element={<Signup/>}></Route>
                         </Routes>
                     </Box>
                 </Grid>

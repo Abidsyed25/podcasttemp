@@ -3,18 +3,18 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-
-
+import { Box } from '@mui/material';
+import './Maincard.css'
 export default function Maincard() {
+  
   return (
     
-
-    <Card sx={{ width:'90%' }}>
-      <CardActionArea>
+    <Card sx={{ width:'95%'}}>
+      
+     
         <CardMedia
           component="img"
-          height="140"
+          height="200px"
           image="podcast.jpeg"
           alt="green iguana"
           />
@@ -26,9 +26,12 @@ export default function Maincard() {
             Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica
           </Typography>
-          <audio controls style={{width:'90%'}}></audio>
+          <Box >
+
+          <audio controls style={{backgroundColor:'none',width:'95%',marginTop:'30px'}}></audio>
+          </Box>
         </CardContent>
-      </CardActionArea>
+      
     </Card>
           
   );
