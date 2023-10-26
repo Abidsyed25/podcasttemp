@@ -4,6 +4,9 @@ import Home from "./components/Home";
 import Admin from "./components/Admin";
 import About from "./components/About";
 import Searchbar from "./components/Searchbar";
+import Homepage from "./Homepage";
+import { Routes,Route } from "react-router-dom";
+import Mainpage from "./Mainpage";
 function Layout() {
     return (
         <>
@@ -24,7 +27,11 @@ function Layout() {
                         <Searchbar/>
                     </Box>
                     <Box sx={{ border: '2px solid black', height: '90vh',overflow:'scroll' }}>
-                        <Box sx={{height:'100vh'}}></Box>
+                        <Routes>
+                            <Route path="/" element={<Homepage/>}>
+                            </Route>
+                            <Route path="/main" element={<Mainpage/>}></Route>
+                        </Routes>
                     </Box>
                 </Grid>
             </Grid>
