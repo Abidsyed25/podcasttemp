@@ -4,29 +4,51 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useRef,useState } from 'react';
+import { useEffect } from 'react';
+import {Box} from '@mui/material';
 
-export default function CardList() {
+export default function CardList({post}) {
+  const containerRef = useRef(null);
+  const [isOverflowing, setIsOverflowing] = useState(false);
+  let navigate = useNavigate();
+  
+  useEffect(() => {
+    const container = containerRef.current;
+    if (container) {
+      setIsOverflowing(container.scrollWidth > container.offsetWidth);
+    }
+  }, [post.title]);
+  const handlemain = () => {
+         navigate('/main/'+post.num);
+  }
+
   return (
-    <Card sx={{ minWidth: '20%',margin:'15px',height:'150px'}}>
-      <Link to='/main' style={{textDecoration:'none'}}>
-      <CardActionArea>
+    <Card sx={{ width: {xs:'95%',sm:'40%',lg:'30%'},margin:'15px',height:'240px'}}>
+      
+      {/* <Link to={'/main/'+post.num} style={{textDecoration:'none'}}> */}
+      <CardActionArea onClick={handlemain}>
         <CardMedia
           component="img"
-          height="100px"
-          image="podcast.jpeg"
+          height="140px"
+          image={"../"+post.category+".jpg"}
           alt="green iguana"
           />
-        <CardContent sx={{padding:'0px',height:'50px'}}>
-          <Typography gutterBottom variant="p" component="div">
-            Lizard
+        <CardContent sx={{padding:'10px',height:'100px'}}>
+          <Typography gutterBottom variant="h6" component="div" color="text.secondary" sx={{whiteSpace: 'nowrap'}} ref={containerRef}>
+          {isOverflowing ? <marquee scrollamount="3">
+
+            {post.title + " #" + post.num} 
+          </marquee> : <Box>{post.title+ " #" + post.num}</Box>}
+          
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards 
+          <Typography variant="body2" color="text.secondary" >
+            {post.speaker}
           </Typography>
         </CardContent>
       </CardActionArea>
-    </Link>
     </Card>
+    // </Link>
   );
 }

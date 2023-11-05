@@ -7,3 +7,10 @@ audio::-webkit-media-controls-play-button {
     border-radius: 100%;
     background-color: bisque;
 }
+audio::-webkit-media-controls-thumb {
+    background: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+  

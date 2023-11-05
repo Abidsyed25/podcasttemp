@@ -4,7 +4,7 @@ function Title() {
   return (
     
     <>
-       <Box sx={{height:'90px',border:'2px solid red',display:'flex',alignItems:'center',justifyContent:'center'}}>
+       <Box sx={{height:{xs:'auto',sm:'90px'},display:'flex',alignItems:'center',justifyContent:'center'}}>
        <LogoDevIcon fontSize='large'/><Typography variant="h5" >Podcast</Typography>
 
        </Box>
