@@ -13,7 +13,7 @@ function Homepage(){
     let dispatch = useDispatch();
     useEffect(() => {
         if (!item) {
-          fetch("http://localhost:8000/")
+          fetch("https://podcast-backend-production-6eab.up.railway.app/")
             .then((res) => res.json())
             .then((data) => dispatch(addUser(data)))
             .catch((err) => console.log(err));
