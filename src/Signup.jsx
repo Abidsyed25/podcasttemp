@@ -23,7 +23,7 @@ const options = {
   body: JSON.stringify(data), // Convert the object to a JSON string
 };
            try{
-            let api = await fetch('http://localhost:8000/signup',options);
+            let api = await fetch('https://podcast-backend-production-6eab.up.railway.app/signup',options);
             let tokenn = await api.json();
             if(!tokenn.name){
                 setflag(true);
