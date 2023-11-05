@@ -33,7 +33,7 @@ function Adminpanel({ item, setitem }) {
   useEffect(() => {
     if (item === null) {
       // If item is null, fetch the data and set it
-      fetch("http://localhost:8000/admin", { method: 'GET', credentials: 'include' })
+      fetch("https://podcast-backend-production-6eab.up.railway.app/admin", { method: 'GET', credentials: 'include' })
         .then(res => res.json())
         .then(data => setitem(data))
         .catch(err => console.log(err));
@@ -52,7 +52,7 @@ function Adminpanel({ item, setitem }) {
     formData.append('category', category);
     console.log(formData.getAll('file'));
     try {
-      let api = await fetch('http://localhost:8000/podcast', { method: 'POST', body: formData });
+      let api = await fetch('https://podcast-backend-production-6eab.up.railway.app/podcast', { method: 'POST', body: formData });
       let tokenn = await api.json();
       console.log(tokenn);
     }
