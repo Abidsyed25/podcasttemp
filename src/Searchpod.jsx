@@ -8,7 +8,7 @@ function Searchpod(){
     console.log(q[0]);
     let [it,setIte] = useState(null);
     useEffect(() => {
-        fetch("http://localhost:8000/search?" + q[0]).then(res => res.json())
+        fetch("https://podcast-backend-production-6eab.up.railway.app/search?" + q[0]).then(res => res.json())
         .then(data => setIte(data)).catch(err => console.log(err))
     },[q[0]]);
     if(!it){
