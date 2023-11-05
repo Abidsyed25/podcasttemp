@@ -1,14 +1,9 @@
 import { Grid, Box, Paper } from "@mui/material";
 import Title from "./components/Title";
-import Home from "./components/Home";
-import Admin from "./components/Admin";
-import About from "./components/About";
 import Searchbar from "./components/Searchbar";
 import Homepage from "./Homepage";
 import { Routes,Route } from "react-router-dom";
 import Mainpage from "./Mainpage";
-import { Link } from "react-router-dom";
-import {Button} from "@mui/material";
 import Login from "./Login";
 import Signup from "./Signup";
 import { useCookies } from "react-cookie";
@@ -16,22 +11,16 @@ import Adminpanel from "./Adminpanel";
 import { useState } from "react";
 import Search from "./Searchpod";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from 'react-redux';
 import Navbar from "./Navbar";
 import Navlist from "./Navlist";
 import Music from "./Music";
-import { addUser } from "./store/fetchslice";
-import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
 import Aboutus from "./Aboutus";
 import './Layout.css';
 function Layout() {
-    let [cookies,setcookies,remove] = useCookies();
+    let [cookies] = useCookies();
     let [item,setitem] = useState(null);
-    const dispatch = useDispatch();
     let navigate = useNavigate();
-    const data = useSelector((state) => {
-        return state.users;
-    })
+    
     
     const handleSearch = (e) => {
         

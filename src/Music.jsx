@@ -2,15 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Box,Typography } from "@mui/material";
 import CardList from "./components/Cardlist";
 import {CircularProgress} from "@mui/material";
-import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import {  useSelector } from "react-redux/es/hooks/useSelector";
-import { addUser } from "./store/fetchslice";
 
 function Music(){
     let [item,setitem] = useState(null);
     const {name} = useParams();
-    let dispatch = useDispatch();
+
     useEffect(() => {
         if (!item) {
           fetch("http://localhost:8000/" + name)
@@ -18,7 +15,7 @@ function Music(){
             .then((data) => setitem(data))
             .catch((err) => console.log(err));
         }
-      }, [item]);
+      }, [item,name]);
     if(!item){
         return <>
         <Box sx={{height:'70vh',width:'100%',display:'flex',alignItems:'center',justifyContent:'center'}}>
