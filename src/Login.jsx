@@ -19,7 +19,7 @@ function Login(){
          const updatedDetails = { username: name, password: pass };
          console.log(e.target.name);
          try{
-         let api = await fetch('http://localhost:8000/login',{ headers: {
+         let api = await fetch('https://podcast-backend-production-6eab.up.railway.app/login',{ headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           },method:'POST',body:JSON.stringify(updatedDetails)});
