@@ -10,7 +10,7 @@ function Mainpage(){
     let [data,setdata] = useState(null);
     const {id} = useParams();
   useEffect(() => {
-    fetch(`http://localhost:8000/main/${id}`).then(res => res.json()).then(data => setdata(data)).catch(err => console.log(err))
+    fetch(`https://podcast-backend-production-6eab.up.railway.app/main/${id}`).then(res => res.json()).then(data => setdata(data)).catch(err => console.log(err))
 },[]);
 if(!data){
     return (<Box sx={{height:'70vh',width:'100%',display:'flex',alignItems:'center',justifyContent:'center'}}>
