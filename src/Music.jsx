@@ -10,7 +10,7 @@ function Music(){
 
     useEffect(() => {
         if (!item) {
-          fetch("http://localhost:8000/" + name)
+          fetch("https://podcast-backend-production-6eab.up.railway.app/" + name)
             .then((res) => res.json())
             .then((data) => setitem(data))
             .catch((err) => console.log(err));
